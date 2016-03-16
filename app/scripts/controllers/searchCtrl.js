@@ -52,11 +52,17 @@
       that.movieClicked = true;
 
       //collectionCtrl.addMovieToCollection(movie);
+      console.log("imbdId: " + that.selectedMovie.imdbId);
     }
 
     that.addMovieToCollection = function() {
-      console.log("add movie to collection: " + that.selectedMovie.title);
-      $http.post(apiUrl,that.selectedMovie).success(function(data) {
+      console.log("add movie to collection: " + that.selectedMovie.imdbId);
+
+      var obj = {
+        "imdbId": that.selectedMovie.imdbId
+      };
+
+      $http.post(apiUrl, obj).success(function(data) {
         console.log("success");
         $location.path("/collection");
       });

@@ -4,7 +4,8 @@
   "dependencies": {
     "angular-route": "^1.5.0",
     "bootstrap": "^3.3.6",
-    "angular": "^1.5.0"
+    "angular": "^1.5.0",
+    "Bootstrap-Confirmation": "bootstrap-confirmation#*"
   },
   "devDependencies": {},
   "appPath": "app",

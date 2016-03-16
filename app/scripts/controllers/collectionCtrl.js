@@ -24,5 +24,19 @@
       console.log("movie id: " + movie.id);
       $location.path("/detail/" + movie.id);
     }
+
+    that.removeFromCollection  = function(movie) {
+      $http.delete(apiUrl + movie.id).success(function(data) {
+        console.log("movie succesfully deleted from collection");
+        for (var i = 0; i < that.movies.length; i++) {
+          that.m = that.movies[i];
+          if(that.m.id == movie.id) {
+            that.movies.splice(i, 1);
+          }
+        }
+      });
+    }
   }
 })();
+
+$('[data-toggle=confirmation]').confirmation('show');

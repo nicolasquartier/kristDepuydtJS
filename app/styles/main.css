@@ -45,3 +45,27 @@ ul li.movie ul li.year {
 td.titles {
   font-weight: bold;
 }
+
+p.removeFromCollection img{
+  margin: 0;
+  padding:0;
+  max-width:25px;
+  float:left;
+  position: relative;
+  top:35px;
+  left:80px;
+  z-index:2;
+}
+
+p.removeFromCollection:hover {
+}
+
+p.removeFromCollection img:hover{
+  background-image: url('../images/remove_hover.jpg');
+}
+
+ul.collectionMovieUl {
+  position: relative;
+  top:-20px;
+  z-index:0;
+}

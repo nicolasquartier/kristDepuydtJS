@@ -7,19 +7,7 @@
   function DetailCtrl($routeParams, $http, apiUrl) {
     var that = this;
     that.movieId = $routeParams.movieId;
-    that.movie = [
-      {
-        id: that.movieId,
-        title:"",
-        year: "",
-        runtime: "",
-        plot: "",
-        poster: "",
-        rating: "",
-        imdbId: "",
-        seen: ""
-      }
-    ];
+    that.movie = {};
 
     (function() {  // init
       console.log(apiUrl + that.movieId);
@@ -29,19 +17,21 @@
     })();
 
     that.seenMovie = function() {
-      that.movie.seen = true;
-      console.log(apiUrl + that.movie.id);
+      console.log(apiUrl + that.movie.id + ": " + that.movie.seen);
+      var obj = {
+        "seen": that.movie.seen
+      };
 
-      $http.put(apiUrl + that.movie.id, that.movie)
+      $http.put(apiUrl + that.movie.id, obj)
         .success(function(data) {
-          console.log("seen the movie");
+          console.log("see movie successfully");
         })
         .error(function() {
           console.log("error");
         })
         .then(function(response) {
           if(response.status == "204") {
-            console.log("Seen movie");
+            console.log("see movie successfully");
           }
           else {
             console.log("something went horribly wrong!");

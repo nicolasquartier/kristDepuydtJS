@@ -1,8 +1,21 @@
 <h1>My Collection</h1>
 
 <ul>
-  <li ng-click="collectionCtrl.seeDetailsMovie(movie)" ng-repeat="movie in collectionCtrl.movies" class="movie col-md-6">
-    <ul>
+  <li  ng-repeat="movie in collectionCtrl.movies" class="movie col-md-6">
+    <p ng-click="collectionCtrl.removeFromCollection(movie)" class="removeFromCollection">
+      <img src="../images/remove.jpg" alt="remove Movie from collection"/>
+    </p>
+    <!--<button class="btn btn-default"-->
+            <!--data-toggle="confirmation"-->
+            <!--data-btn-ok-label="Continue"-->
+            <!--data-btn-ok-icon="glyphicon glyphicon-share-alt"-->
+            <!--data-btn-ok-class="btn-success"-->
+            <!--data-btn-cancel-label="Stoooop!"-->
+            <!--data-btn-cancel-icon="glyphicon glyphicon-ban-circle"-->
+            <!--data-btn-cancel-class="btn-danger">-->
+      <!--Confirmation-->
+    <!--</button>-->
+    <ul class="collectionMovieUl" ng-click="collectionCtrl.seeDetailsMovie(movie)">
       <li class="movieTitle"><h3>{{ movie.title }}</h3></li>
       <li><img src="{{ movie.poster }}" alt="movie poster"
                ng-class="{'movie col-md-6x': !movie.clicked, 'movie col-md-6x clicked': movie.clicked}"

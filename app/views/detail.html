@@ -29,8 +29,8 @@
     <tr>
       <td class="titles">Seen: </td>
       <td class="titles">
-        <input type="checkbox" ng-click="detailCtrl.seenMovie(movie)" ng-model="checkbox.seenMovie" ng-checked="{{ detailCtrl.movie.seen }}"/>
-        <label>{{ checkbox.seenMovie }}</label>
+        <input id="checkboxSeenMovies" type="checkbox" ng-click="detailCtrl.seenMovie()" ng-model="detailCtrl.movie.seen"/>
+        <label for="checkboxSeenMovies">{{  detailCtrl.movie.seen == true ? "Yes" : "No" }}</label>
       </td>
     </tr>
   </table>

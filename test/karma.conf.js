@@ -27,6 +27,7 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/Bootstrap-Confirmation/bootstrap-confirmation.js',
+      'bower_components/angular-loading-bar/build/loading-bar.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",

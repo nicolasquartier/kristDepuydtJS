@@ -27,7 +27,7 @@
 <!--</table>-->
 
 <ul>
-  <li ng-click="searchCtrl.selectMovie(movie)"  ng-repeat="movie in searchCtrl.movies" class="movie col-md-6">
+  <li ng-click="searchCtrl.selectMovie(movie)"  ng-repeat="movie in searchCtrl.movies | skip:0 " class="movie col-md-6">
     <ul>
       <li class="movieTitle"><h3>{{ movie.title }}</h3></li>
       <li><img src="{{ movie.poster }}" alt="movie poster" ng-class="{'movie col-md-6x': !movie.clicked, 'movie col-md-6x clicked': movie.clicked}"/></li>

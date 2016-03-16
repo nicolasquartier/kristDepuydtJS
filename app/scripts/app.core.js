@@ -1,7 +1,7 @@
 "use strict";
 
 (function() {
-  angular.module("movie.core", ["ngRoute"])
+  angular.module("movie.core", ["ngRoute", "angular-loading-bar"])
     .config(function ($routeProvider) {
       $routeProvider.when("/home", {
         templateUrl: "views/home.html",
@@ -26,5 +26,20 @@
       $routeProvider.otherwise({
         redirectTo: "/home"
       });
+    })
+    .filter("skip", function() {
+      return function(data, itemsToSkip) {
+        if(angular.isArray(data) && angular.isNumber(itemsToSkip)) {
+          if(itemsToSkip > data.length || itemsToSkip < 1) {
+            return data;
+          }
+          else {
+            return data.slice(itemsToSkip);
+          }
+        }
+        else {
+          return data;
+        }
+      };
     });
 })();

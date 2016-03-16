@@ -1,0 +1,38 @@
+<h1>Search</h1>
+<form class="form" novalidate name="searchForm" ng-submit="searchCtrl.search(Title)">
+  <input type="text" class="form-control" placeholder="Title" name="txtTitle" required ng-model="Title" ng-minlength="1"/>
+  <button type="submit" class="btn btn-primary btn-block" ng-disabled="addForm.$invalid">Search</button>
+</form>
+<form class="form" novalidate name="searchForm" ng-submit="searchCtrl.addMovieToCollection()">
+  <button type="submit" class="btn btn-success btn-block" ng-hide="!searchCtrl.movieClicked">Add To Collection</button>
+</form>
+
+<!--<table class="table table-striped">-->
+  <!--<thead>-->
+  <!--<tr>-->
+    <!--<th>title</th>-->
+    <!--<th>poster</th>-->
+    <!--<th>imdbId</th>-->
+    <!--<th>year</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr ng-repeat="movie in searchCtrl.movies">-->
+    <!--<td>{{ movie.title }}</td>-->
+    <!--<td>{{ movie.poster }}</td>-->
+    <!--<td>{{ movie.imdbId }}</td>-->
+    <!--<td>{{ movie.year }}</td>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+<ul>
+  <li ng-click="searchCtrl.selectMovie(movie)"  ng-repeat="movie in searchCtrl.movies" class="movie col-md-6">
+    <ul>
+      <li class="movieTitle"><h3>{{ movie.title }}</h3></li>
+      <li><img src="{{ movie.poster }}" alt="movie poster" ng-class="{'movie col-md-6x': !movie.clicked, 'movie col-md-6x clicked': movie.clicked}"/></li>
+      <li class="imdbId"><h4>IMDB ID: {{ movie.imdbId }}</h4></li>
+      <li class="year"><h4>YEAR: {{ movie.year }}</h4></li>
+    </ul>
+  </li>
+</ul>

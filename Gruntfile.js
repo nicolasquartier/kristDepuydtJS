@@ -220,7 +220,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -424,7 +424,7 @@ module.exports = function (grunt) {
         singleRun: true
       }
     },
-    
+
     angularFileLoader: {
         options: {
             scripts: ['<%= yeoman.app %>/scripts/**/*.js']
@@ -433,8 +433,8 @@ module.exports = function (grunt) {
             src: ['<%= yeoman.app %>/index.html']
         }
     }
-    
-    
+
+
   });
 
 

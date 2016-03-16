@@ -1,0 +1,38 @@
+<h1>Details of {{ detailCtrl.movie.title }}</h1>
+<div class="col-md-4">
+  <img src="{{ detailCtrl.movie.poster }}"
+       alt="movie poster"
+       onerror="if (this.src == 'http://localhost:9000/N/A'){this.src='../images/error.jpg'; }"/>
+</div>
+<div class="details col-md-6">
+  <table class="table table-striped">
+    <tr>
+      <td class="titles">Title: </td>
+      <td>{{ detailCtrl.movie.title }}</td>
+    </tr>
+    <tr>
+      <td class="titles">Release year: </td>
+      <td>{{ detailCtrl.movie.year }}</td>
+    </tr>
+    <tr>
+      <td class="titles">Runtime: </td>
+      <td>{{ detailCtrl.movie.runtime }}</td>
+    </tr>
+    <tr>
+      <td class="titles">Plot: </td>
+      <td>{{ detailCtrl.movie.plot }}</td>
+    </tr>
+    <tr>
+      <td class="titles">Rating: </td>
+      <td>{{ detailCtrl.movie.rating }}</td>
+    </tr>
+    <tr>
+      <td class="titles">Seen: </td>
+      <td class="titles">
+        <input type="checkbox" ng-click="detailCtrl.seenMovie(movie)" ng-model="checkbox.seenMovie" ng-checked="{{ detailCtrl.movie.seen }}"/>
+        <label>{{ checkbox.seenMovie }}</label>
+      </td>
+    </tr>
+  </table>
+
+</div>

@@ -1,0 +1,15 @@
+<h1>My Collection</h1>
+
+<ul>
+  <li ng-click="collectionCtrl.seeDetailsMovie(movie)" ng-repeat="movie in collectionCtrl.movies" class="movie col-md-6">
+    <ul>
+      <li class="movieTitle"><h3>{{ movie.title }}</h3></li>
+      <li><img src="{{ movie.poster }}" alt="movie poster"
+               ng-class="{'movie col-md-6x': !movie.clicked, 'movie col-md-6x clicked': movie.clicked}"
+               onerror="if (this.src == 'http://localhost:9000/N/A'){this.src='../images/error.jpg'; }"/></li>
+      <li class="imdbId"><h4>IMDB ID: {{ movie.imdbId }}</h4></li>
+      <li class="year"><h4>YEAR: {{ movie.year }}</h4></li>
+    </ul>
+  </li>
+</ul>
+

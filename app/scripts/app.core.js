@@ -2,7 +2,10 @@
 
 (function() {
   angular.module("movie.core", ["ngRoute", "angular-loading-bar"])
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider, $httpProvider) {
+
+      $httpProvider.interceptors.push("customHeaderService");
+
       $routeProvider.when("/home", {
         templateUrl: "views/home.html",
         controller: "appCtrl",

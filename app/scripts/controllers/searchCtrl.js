@@ -4,7 +4,7 @@
   angular.module("movieCatalog")
     .controller("searchCtrl", SearchCtrl);
 
-  function SearchCtrl(apiUrl, $http, $location) {
+  function SearchCtrl(apiUrl, $http, $location, dataService) {
     var that = this;
     that.movieClicked = false;
 
@@ -29,7 +29,7 @@
     that.movies = [];
 
     that.search = function(title) {
-      $http.get(apiUrl + "/Search/?title=" + title).success(function(data) {
+      dataService.searchMovie(title).then(function(data) {
         for (var i = 0; i < data.length; i++) {
           that.movie = data[i];
           that.movies.push(that.movie);
@@ -57,12 +57,11 @@
 
     that.addMovieToCollection = function() {
       console.log("add movie to collection: " + that.selectedMovie.imdbId);
-
       var obj = {
         "imdbId": that.selectedMovie.imdbId
       };
 
-      $http.post(apiUrl, obj).success(function(data) {
+      dataService.addMovieToCollection(obj).then(function() {
         console.log("success");
         $location.path("/collection");
       });

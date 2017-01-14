@@ -4,20 +4,21 @@
   angular.module("movieCatalog")
     .controller("collectionCtrl", CollectionCtrl);
 
-  function CollectionCtrl($http, apiUrl, $location) {
+  function CollectionCtrl($http, apiUrl, $location, dataService) {
     var that = this;
 
     that.movies = [];
 
     (function() {  // init
-      $http.get(apiUrl).success(function(data) {
+      dataService.getCollection().then(function(data) {
         for (var i = 0; i < data.length; i++) {
           that.movie = data[i];
           that.movies.push(that.movie);
           that.movie = "";
         }
-        console.log("collection successfully loaded")
-      });
+        console.log("collection successfully loaded");
+      })
+
     })();
 
     that.seeDetailsMovie = function(movie) {
@@ -26,7 +27,7 @@
     }
 
     that.removeFromCollection  = function(movie) {
-      $http.delete(apiUrl + movie.id).success(function(data) {
+      dataService.deleteFromCollection(movie).then(function(data) {
         console.log("movie succesfully deleted from collection");
         for (var i = 0; i < that.movies.length; i++) {
           that.m = that.movies[i];

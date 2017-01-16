@@ -1,7 +1,7 @@
 "use strict";
 
 (function() {
-  angular.module("movieCatalog")
+  angular.module("kristDepuydt")
     .controller("collectionCtrl", CollectionCtrl);
 
   function CollectionCtrl($http, apiUrl, $location, dataService) {

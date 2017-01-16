@@ -17,6 +17,11 @@ body .container {
     max-width: 960px;
 }
 
+section {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 a {
     text-decoration: none;
     color: #474747;
@@ -50,9 +55,9 @@ ul {
 .photos ul li.image {
     float: left;
     list-style: none;
-    margin: 0 0 0 -2px;
+    margin: 5px;
     padding: 0;
-    width: calc(25%);
+    width: calc(15%);
     z-index: 2;
     position: relative;
 }
@@ -75,7 +80,7 @@ ul {
     object-fit: cover;
     /*max-width:calc(100%);*/
     width: calc(100%);
-    height: 330px;
+    height: 140px;
     transition: .75s all;
     float: left;
 

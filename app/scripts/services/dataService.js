@@ -1,7 +1,7 @@
 "use strict";
 
 (function() {
-  angular.module("movie.core").provider("dataService", function() {
+  angular.module("kristDepuydt.core").provider("dataService", function() {
     return {
       $get: function($http, $q, apiUrl) {
         return {

@@ -1,10 +1,10 @@
 "use strict";
 
 (function() {
-  angular.module("movie.core").factory("customHeaderService", function() {
+  angular.module("kristDepuydt.core").factory("customHeaderService", function() {
     return {
       request: function(config) {
-        config.headers["myHeader"] = "movie catalog";
+        config.headers["myHeader"] = "Krist Depuydt";
         return config;
       }
     }

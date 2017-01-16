@@ -1,11 +1,47 @@
 "use strict";
 
 (function() {
-  angular.module("movie.core", ["ngRoute", "angular-loading-bar"])
+  angular.module("kristDepuydt.core", ["ngRoute", "angular-loading-bar"])
     .config(function ($routeProvider, $httpProvider) {
 
       $httpProvider.interceptors.push("customHeaderService");
 
+      $routeProvider.when("/", {
+        templateUrl: "views/keramiek.html",
+        controller: "keramiekCtrl",
+        controllerAs: "keramiekCtrl"
+      });
+      $routeProvider.when("/keramiek", {
+        templateUrl: "views/keramiek.html",
+        controller: "keramiekCtrl",
+        controllerAs: "keramiekCtrl"
+      });
+      $routeProvider.when("/sculptuur", {
+        templateUrl: "views/sculptuur.html",
+        controller: "sculptuurCtrl",
+        controllerAs: "sculptuurCtrl"
+      });
+      $routeProvider.when("/about", {
+        templateUrl: "views/about.html",
+        controller: "aboutCtrl",
+        controllerAs: "aboutCtrl"
+      });
+      $routeProvider.when("/contact", {
+        templateUrl: "views/contact.html",
+        controller: "ContactCtrl",
+        controllerAs: "ContactCtrl"
+      });
+      $routeProvider.when("/rudiquartier", {
+        templateUrl: "views/rudiquartier.html",
+        controller: "rudiquartierCtrl",
+        controllerAs: "rudiquartierCtrl"
+      });
+
+      $routeProvider.when("/exposities", {
+        templateUrl: "views/exposities.html",
+        controller: "appCtrl",
+        controllerAs: "appCtrl"
+      });
       $routeProvider.when("/home", {
         templateUrl: "views/home.html",
         controller: "appCtrl",

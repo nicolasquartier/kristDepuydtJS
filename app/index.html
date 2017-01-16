@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="Krist Depuydt" lang="nl">
+<html ng-app="kristDepuydt" lang="nl">
 
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
@@ -10,8 +10,8 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -31,12 +31,12 @@
 <nav>
   <div cl ass="container">
     <ul class="menu">
-      <li class="active"><a href="#">Keramiek</a></li>
-      <li><a href="#">Sculptuur</a></li>
-      <li><a href="#about">over</a></li>
-      <li><a href="#exposities">exposities</a></li>
-      <li><a href="#contact">contact</a></li>
-      <li><a href="#">Rudi Quartier</a></li>
+      <li class="active"><a href="#/keramiek">Keramiek</a></li>
+      <li><a href="#/sculptuur">Sculptuur</a></li>
+      <li><a href="#/about">over</a></li>
+      <li><a href="#/exposities">exposities</a></li>
+      <li><a href="#/contact">contact</a></li>
+      <li><a href="#/rudiquartier">Rudi Quartier</a></li>
     </ul>
   </div>
 </nav>
@@ -57,16 +57,19 @@
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <!-- angular -->
 <script src="scripts/app.core.js" type="text/javascript"></script>
+<script src="scripts/services/imageService.js" type="text/javascript"></script>
 <script src="scripts/services/dataService.js" type="text/javascript"></script>
 <script src="scripts/services/customHeaderService.js" type="text/javascript"></script>
+<script src="scripts/nav.js" type="text/javascript"></script>
+<script src="scripts/lightbox.js" type="text/javascript"></script>
 <script src="scripts/app.js" type="text/javascript"></script>
 <script src="scripts/controllers/searchCtrl.js" type="text/javascript"></script>
+<script src="scripts/controllers/keramiekCtrl.js" type="text/javascript"></script>
 <script src="scripts/controllers/detailCtrl.js" type="text/javascript"></script>
 <script src="scripts/controllers/collectionCtrl.js" type="text/javascript"></script>
 <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
 <script src="scripts/app.config.js" type="text/javascript"></script>
 <!-- endangular -->
 <!-- endbuild -->
-<script src="scripts/nav.js"></script>
 </body>
 </html>

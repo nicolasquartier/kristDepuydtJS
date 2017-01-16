@@ -1,7 +1,7 @@
 "use strict";
 
 (function() {
-  angular.module("movieCatalog")
+  angular.module("kristDepuydt")
     .controller("searchCtrl", SearchCtrl);
 
   function SearchCtrl(apiUrl, $http, $location, dataService) {

@@ -139,19 +139,17 @@ ul {
 }
 
 .exposities {
-  width: 720px;
-  position: relative;
-  top: 80px;
+  /*width: 945px;*/
+  width: 100%;
   font-family: "simplifica";
-  padding-left: 160px;
 }
 
 .exposities h1 {
   font-family: "simplifica";
   text-transform: uppercase;
   font-weight: bolder;
-  margin-bottom: 20px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 .exposities ul {
@@ -161,17 +159,21 @@ ul {
 .exposities ul li {
   float: left;
   list-style: none;
-  width: 50%;
-  height: 130px;
+  width: 960px;
+}
+
+.exposities ul li.last {
+  margin-bottom: 30px;
 }
 
 .exposities ul li p {
   margin: 0;
   font-size: 19px;
+  display: inline-block;
 }
 
 .exposities ul li p.title {
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .exposities ul li p a {

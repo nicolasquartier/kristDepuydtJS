@@ -96,8 +96,8 @@
                     '<div class="lb-dataContainer">' +
                         '<div class="lb-data">' +
                             '<div class="lb-details">' +
-                                '<span class="lb-caption"></span>' +
                                 '<span class="lb-number"></span>' +
+                                '<span class="lb-caption">test</span>' +
                             '</div>' +
                             '<div class="lb-closeContainer">' +
                                 '<a class="lb-close"></a>' +
@@ -424,6 +424,7 @@
             }
             // this.$lightbox.find('.lb-number').text(labelText).fadeIn('fast');
             this.$lightbox.find('.lb-number').html(labelText).fadeIn('fast');
+            this.$lightbox.find('.lb-caption').fadeIn('fast');
         } else {
             this.$lightbox.find('.lb-number').hide();
         }
@@ -493,8 +494,10 @@
     Lightbox.prototype.end = function () {
         this.disableKeyboardNav();
         $(window).off('resize', this.sizeOverlay);
+
         this.$lightbox.fadeOut(this.options.fadeDuration);
         this.$overlay.fadeOut(this.options.fadeDuration);
+        this.$lightbox.find('.lb-caption').html("");
         $('select, object, embed').css({
             visibility: 'visible'
         });

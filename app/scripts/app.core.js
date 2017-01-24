@@ -7,19 +7,19 @@
       $httpProvider.interceptors.push("customHeaderService");
 
       $routeProvider.when("/", {
-        templateUrl: "views/keramiek.html",
-        controller: "keramiekCtrl",
-        controllerAs: "keramiekCtrl"
-      });
-      $routeProvider.when("/keramiek", {
-        templateUrl: "views/keramiek.html",
-        controller: "keramiekCtrl",
-        controllerAs: "keramiekCtrl"
+        templateUrl: "views/sculptuur.html",
+        controller: "sculptuurCtrl",
+        controllerAs: "sculptuurCtrl"
       });
       $routeProvider.when("/sculptuur", {
         templateUrl: "views/sculptuur.html",
         controller: "sculptuurCtrl",
         controllerAs: "sculptuurCtrl"
+      });
+      $routeProvider.when("/keramiek", {
+        templateUrl: "views/keramiek.html",
+        controller: "keramiekCtrl",
+        controllerAs: "keramiekCtrl"
       });
       $routeProvider.when("/about", {
         templateUrl: "views/about.html",

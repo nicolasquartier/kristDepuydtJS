@@ -56,27 +56,38 @@ ul {
 .photos ul li {
 }
 
+.photos ul {
+
+}
+
 .photos ul li.image {
   /*float: left;*/
   list-style: none;
   /*margin-bottom: 40px;*/
   padding: 0;
-  width: calc(20%);
+  width: calc(100%);
+  height:160px;
 }
 
 .photos ul li.image a {
   display: inline-block;
-  width:100%;
-  height:100%;
+  float: left;
+  height: 140px;
+  width: 200px;
 }
 
 .photos ul li.image p.SculptuurSummary {
-  float:left;
-  position: relative;
-  top:-125px;
-  left:220px;
+  /*float: left;*/
+  /*height: 161px;*/
+  /*left: 220px;*/
+  /*margin-left: 10px;*/
+  /*padding-top: 10px;*/
+  /*position: relative;*/
   text-align: justify;
-  width:740px;
+  padding-left:220px;
+  padding-top:10px;
+  /*top: -166px;*/
+  width: 960px;
 }
 
 .photos ul li .pHolder {
@@ -97,7 +108,8 @@ ul {
   position: relative;
   object-fit: cover;
   /*max-width:calc(100%);*/
-  width: calc(100%);
+  /*width: calc(20%);*/
+  width: 200px;
   height: 140px;
   transition: .75s all;
   float: left;
@@ -109,6 +121,15 @@ ul {
   /*background-repeat: no-repeat;*/
   /*background-position: 50% 50%;*/
   overflow: hidden;
+}
+
+#photosKeramiek.photos ul li.image {
+  float: left;
+  height: 150px;
+  list-style: outside none none;
+  margin-right: 10px;
+  padding: 0;
+  width: 200px;
 }
 
 .photos ul li.image:hover img {
@@ -147,12 +168,18 @@ ul {
 }
 
 .about img {
-  position: absolute;
   /*float:left;*/
-  min-width: 100%;
-  min-height: 350px;
+  max-height: 350px;
   float: left;
-  /*clip: rect(0, 100px, 350px, 0);*/
+  object-fit: cover;
+}
+
+.about figure figcaption {
+  width:960px;
+  float:left;
+  font-style: italic;
+  color:#555555;
+  font-size: 12px;
 }
 
 .exposities {

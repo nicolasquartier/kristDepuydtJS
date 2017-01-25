@@ -97,7 +97,7 @@
                         '<div class="lb-data">' +
                             '<div class="lb-details">' +
                                 '<span class="lb-number"></span>' +
-                                '<span class="lb-caption">test</span>' +
+                                '<span class="lb-caption"></span>' +
                             '</div>' +
                             '<div class="lb-closeContainer">' +
                                 '<a class="lb-close"></a>' +

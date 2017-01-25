@@ -21,6 +21,11 @@
         controller: "keramiekCtrl",
         controllerAs: "keramiekCtrl"
       });
+      $routeProvider.when("/projecten", {
+        templateUrl: "views/projecten.html",
+        controller: "projectenCtrl",
+        controllerAs: "projectenCtrl"
+      });
       $routeProvider.when("/about", {
         templateUrl: "views/about.html",
         controller: "aboutCtrl",

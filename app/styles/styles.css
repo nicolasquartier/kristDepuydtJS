@@ -162,6 +162,11 @@ ul {
   margin-bottom: 50px;
 }
 
+.about ul {
+  position: relative;
+  left: 15px;
+}
+
 .about #aboutText {
   padding-left: 20px;
   font-size: 19px;

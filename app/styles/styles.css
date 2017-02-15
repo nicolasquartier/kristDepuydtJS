@@ -221,11 +221,18 @@ ul {
   display: inline-block;
 }
 
+
+.exposities ul li div.extraBeelden {
+  display: none;
+}
+
 .exposities ul li p.title {
   font-weight: bold;
 }
 
 .exposities ul li p a {
+  margin-left: 5px;
+  font-weight: bold;
   text-decoration: none;
   font-size: 15px;
 }

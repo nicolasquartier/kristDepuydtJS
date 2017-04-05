@@ -1,7 +1,8 @@
 @font-face {
   font-family: 'simplifica';
   src: url('../fonts/simplifica.ttf');
-  src: url('../fonts/simplifica.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/simplifica.ttf') format('truetype'); /* Safari, Android, iOS */
+  src: url('../fonts/simplifica.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/simplifica.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 
 body {

@@ -2,9 +2,10 @@
 
 (function() {
   angular.module("kristDepuydt.core", ["ngRoute", "angular-loading-bar"])
-    .config(function ($routeProvider, $httpProvider) {
+    .config(function ($routeProvider, $httpProvider, $locationProvider) {
 
       $httpProvider.interceptors.push("customHeaderService");
+      $locationProvider.html5Mode(true);
 
       $routeProvider.when("/", {
         templateUrl: "views/sculptuur.html",

@@ -1,7 +1,7 @@
 "use strict";
 
 (function() {
-  angular.module("kristDepuydt.core", ["ngRoute", "angular-loading-bar"])
+  var app = angular.module("kristDepuydt.core", ["ngRoute", "angular-loading-bar"])
     .config(function ($routeProvider, $httpProvider, $locationProvider) {
 
       $httpProvider.interceptors.push("customHeaderService");
@@ -71,20 +71,8 @@
       $routeProvider.otherwise({
         redirectTo: "/home"
       });
-    })
-    .filter("skip", function() {
-      return function(data, itemsToSkip) {
-        if(angular.isArray(data) && angular.isNumber(itemsToSkip)) {
-          if(itemsToSkip > data.length || itemsToSkip < 1) {
-            return data;
-          }
-          else {
-            return data.slice(itemsToSkip);
-          }
-        }
-        else {
-          return data;
-        }
-      };
     });
+  app.run(function() {
+    console.log("start app");
+  });
 })();

@@ -8,7 +8,7 @@
     var that = this;
     that.ver = appVersion;
     that.sculptuurPhotosetsTemp = [];
-    $scope.sculptuurPhotosets = [];
+    that.sculptuurPhotosets = [];
 
     console.log($rootScope.photosets);
     flickrService.getPhotoSets().then(function (globalPhotosets) {
@@ -27,7 +27,7 @@
         let name = that.sculptuurPhotosetsTemp[l].name;
         let description = that.sculptuurPhotosetsTemp[l].description;
         flickrService.getPhotos(that.sculptuurPhotosetsTemp[l].id).then(function (photosFromPhotoset) {
-          $scope.sculptuurPhotosets.push({id: id,
+          that.sculptuurPhotosets.push({id: id,
             name: name,
             description: description,
             photos: photosFromPhotoset});
@@ -35,7 +35,7 @@
       }
 
       setTimeout(function () {
-        console.log($scope.sculptuurPhotosets);
+        console.log(that.sculptuurPhotosets);
       }, 2000);
     });
   }

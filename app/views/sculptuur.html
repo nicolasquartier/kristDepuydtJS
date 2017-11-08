@@ -1,160 +1,17 @@
 <section id="photos" class="photos">
   <div class="container">
     <ul>
-      <li class="image">
-        <a href="../images/Sculptuur/Aposteleas/Apostelea's (1).JPG" data-lightbox="Aposteleas"
-           data-title="Apostelea 1">
-          <img src="../images/Sculptuur/Aposteleas/Apostelea's (1).JPG"/>
+      <li class="image" ng-repeat="photoset in sculptuurCtrl.sculptuurPhotosets">
+        <a href="{{photoset.photos[0]}}" data-lightbox="{{photoset.name}}" data-title="{{photoset.name}}">
+          <img src="{{photoset.photos[0]}}"/>
         </a>
-        <p class="SculptuurSummary"><b>Apostelea's</b> waren volgelingen of worden keramische vrouwen. Herkenbaar, fragmentarisch, realistisch of picturaal in evolutie tot twaalf confrontaties in klei.</p>
+        <p class="SculptuurSummary"><b>{{photoset.name}}</b> - {{photoset.description}}</p>
         <div class="extraBeelden">
-          <div class="beeld">
-            <a href="../images/Sculptuur/Aposteleas/Apostelea's (1.1).JPG" data-lightbox="Aposteleas"
-               data-title="Apostelea 1">
-              <img src="../images/Sculptuur/Aposteleas/Apostelea's (1.1).JPG"/>
+          <div class="beeld" ng-repeat="photo in photoset.photos">
+            <a href="{{photo}}" data-lightbox="{{photoset.name}}" data-title="{{photoset.name}}">
+              <img src="{{photo}}"/>
             </a>
           </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/Aposteleas/Apostelea's (2).JPG" data-lightbox="Aposteleas"
-               data-title="Apostelea 2">
-              <img src="../images/Sculptuur/Aposteleas/Apostelea's (2).JPG"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/Aposteleas/Apostelea's (3).JPG" data-lightbox="Aposteleas"
-               data-title="Apostelea 3">
-              <img src="../images/Sculptuur/Aposteleas/Apostelea's (3).JPG"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/Aposteleas/Apostelea's (4).JPG" data-lightbox="Aposteleas"
-               data-title="Apostelea 3">
-              <img src="../images/Sculptuur/Aposteleas/Apostelea's (4).JPG"/>
-            </a>
-          </div>
-        </div>
-      </li>
-      <li class="image">
-        <a href="../images/Sculptuur/Beschaving/Beeld-in-Beeld.jpg" data-lightbox="Beeld-in-beeld"
-           data-title="Beeld-in-beeld">
-          <img src="../images/Sculptuur/Beschaving/Beeld-in-Beeld.jpg"/>
-        </a>
-        <p class="SculptuurSummary">
-          <b>BEELD-in-BEELD</b>, uit aarde gemaakt, een subtiel evenwicht tussen een restant van een antieke beschaving en samen gekneed tot
-          een eigentijds figuratief beeld. Beelden verbeelden, afzonderlijk of dubbel, de monumentale keramiek zoekt de ruimte op. Op de grens van de
-          materie afzonderlijk versteend, ingekleurd als één geheel. Gebakken in de aarde, uniek en onvoorspelbaar.
-        </p>
-        <div class="extraBeelden">
-        </div>
-      </li>
-      <li class="image">
-        <a href="../images/Sculptuur/Liggende Man/liggende man.jpg"
-           data-lightbox="LiggendeMan" data-title="Liggende Man">
-          <img src="../images/Sculptuur/Liggende Man/liggende man.jpg" alt="Liggende Man"/>
-        </a>
-        <p class="SculptuurSummary"><b>Liggende Man</b>, keramiek, ingekleurd en in een veldoven gebakken, L1.90 m</p>
-        <div class="extraBeelden">
-          <div class="beeld">
-            <a href="../images/Sculptuur/Liggende Man/liggende man 1.jpg"
-               data-lightbox="LiggendeMan" data-title="Liggende Man">
-              <img src="../images/Sculptuur/Liggende Man/liggende man 1.jpg" alt="Liggende Man"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/Liggende Man/liggende man 2.jpg"
-               data-lightbox="LiggendeMan" data-title="Liggende Man">
-              <img src="../images/Sculptuur/Liggende Man/liggende man 2.jpg" alt="Liggende Man"/>
-            </a>
-          </div>
-        </div>
-      </li>
-      <li class="image">
-        <a href="../images/Sculptuur/Hangende Man/Hangende Man.JPG" data-lightbox="HangendeMan" data-title="Hangende Man">
-          <img src="../images/Sculptuur/Hangende Man/Hangende Man.JPG" alt="Hangende Man"/>
-        </a>
-        <p class="SculptuurSummary"><b>Hangende Man</b>, polyester H1.90 m</p>
-        <div class="extraBeelden">
-          <div class="beeld">
-            <a href="../images/Sculptuur/Hangende Man/Hangende Man (1).JPG"
-               data-lightbox="HangendeMan" data-title="Hangende Man">
-              <img src="../images/Sculptuur/Hangende Man/Hangende Man (1).JPG" alt="Hangende Man"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/Hangende Man/Hangende Man (2).JPG"
-               data-lightbox="HangendeMan" data-title="Hangende Man">
-              <img src="../images/Sculptuur/Hangende Man/Hangende Man (2).JPG" alt="Hangende Man"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/Hangende Man/Hangende Man (3).JPG"
-               data-lightbox="HangendeMan" data-title="Hangende Man">
-              <img src="../images/Sculptuur/Hangende Man/Hangende Man (3).JPG" alt="Hangende Man"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/Hangende Man/Hangende Man (4).JPG"
-               data-lightbox="HangendeMan" data-title="Hangende Man">
-              <img src="../images/Sculptuur/Hangende Man/Hangende Man (4).JPG" alt="Hangende Man"/>
-            </a>
-          </div>
-        </div>
-      </li>
-      <li class="image">
-        <a href="../images/Sculptuur/On-macht/On-macht (2).JPG" data-lightbox="On-macht" data-title="On-macht">
-          <img src="../images/Sculptuur/On-macht/On-macht (2).JPG" alt="On-macht"/>
-        </a>
-        <p class="SculptuurSummary"><b>On-macht</b>, uitvoering in gepatineerde gips, H2.0 m</p>
-        <div class="extraBeelden">
-          <div class="beeld">
-            <a href="../images/Sculptuur/On-macht/On-macht (3).JPG" data-lightbox="On-macht" data-title="On-macht">
-              <img src="../images/Sculptuur/On-macht/On-macht (3).JPG" alt="On-macht"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/On-macht/On-macht (4).JPG" data-lightbox="On-macht" data-title="On-macht">
-              <img src="../images/Sculptuur/On-macht/On-macht (4).JPG" alt="On-macht"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/On-macht/On-macht (5).JPG" data-lightbox="On-macht" data-title="On-macht">
-              <img src="../images/Sculptuur/On-macht/On-macht (5).JPG" alt="On-macht"/>
-            </a>
-          </div>
-          <div class="beeld">
-            <a href="../images/Sculptuur/On-macht/On-macht (6).JPG" data-lightbox="On-macht" data-title="On-macht">
-              <img src="../images/Sculptuur/On-macht/On-macht (6).JPG" alt="On-macht"/>
-            </a>
-          </div>
-        </div>
-      </li>
-      <li class="image">
-        <a href="../images/Sculptuur/Morfe/Morfe (1).jpg" data-lightbox="Morfe" data-title="Morfe">
-          <img src="../images/Sculptuur/Morfe/Morfe (1).jpg" alt="Morfe"/>
-        </a>
-        <p class="SculptuurSummary"><b>Morfé</b>, keramische fossielen balancerend tussen vorm en materie H30 - B40 cm</p>
-        <div class="extraBeelden">
-          <div class="beeld">
-            <a href="../images/Sculptuur/Morfe/Morfe (2).jpg" data-lightbox="Morfe" data-title="Morfe">
-              <img src="../images/Sculptuur/Morfe/Morfe (2).jpg" alt="Morfe"/>
-            </a>
-          </div>
-        </div>
-      </li>
-      <li class="image">
-        <a href="../images/Sculptuur/Hoofd/Hoofd.JPG" data-lightbox="Hoofd" data-title="Hoofd">
-          <img src="../images/Sculptuur/Hoofd/Hoofd.JPG" alt="Hoofd"/>
-        </a>
-        <p class="SculptuurSummary"><b>Hoofd</b>, keramiek, verschillende kleisoorten gepatineerd, H30 cm</p>
-        <div class="extraBeelden">
-        </div>
-      </li>
-      <li class="image">
-        <a href="../images/Sculptuur/Torso/Torso.JPG" data-lightbox="Torso" data-title="Torso">
-          <img src="../images/Sculptuur/Torso/Torso.JPG" alt="Torso"/>
-        </a>
-        <p class="SculptuurSummary"><b>Torso</b>, keramiek, ingekleurd en gepatineerd, H60 - BR50 - D30 cm</p>
-        <div class="extraBeelden">
         </div>
       </li>
     </ul>

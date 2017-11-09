@@ -4,7 +4,7 @@
   angular.module("kristDepuydt")
     .controller("keramiekCtrl", KeramiekCtrl);
 
-  function KeramiekCtrl($http, apiKey, userId, flickrService) {
+  function KeramiekCtrl(flickrService) {
     var that = this;
     that.keramiekPhotoSetId = null;
     that.photos = [];
@@ -19,7 +19,6 @@
       }
 
       flickrService.getPhotos(that.keramiekPhotoSetId).then(function (photos) {
-        console.log(photos);
         for (var i = 0; i < photos.length; i++) {
           that.photos.push(photos[i]);
         }

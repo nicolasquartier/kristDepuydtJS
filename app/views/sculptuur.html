@@ -7,7 +7,7 @@
         </a>
         <p class="SculptuurSummary"><b>{{photoset.name}}</b> - {{photoset.description}}</p>
         <div class="extraBeelden">
-          <div class="beeld" ng-repeat="photo in photoset.photos">
+          <div class="beeld" ng-repeat="photo in photoset.photos" ng-if="$index > 0">
             <a href="{{photo}}" data-lightbox="{{photoset.name}}" data-title="{{photoset.name}}">
               <img src="{{photo}}"/>
             </a>

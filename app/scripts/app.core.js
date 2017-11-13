@@ -37,16 +37,15 @@
         controller: "ContactCtrl",
         controllerAs: "ContactCtrl"
       });
+      $routeProvider.when("/exposities", {
+        templateUrl: "views/exposities.html",
+        controller: "expositiesCtrl",
+        controllerAs: "expositiesCtrl"
+      });
       $routeProvider.when("/rudiquartier", {
         templateUrl: "views/rudiquartier.html",
         controller: "rudiquartierCtrl",
         controllerAs: "rudiquartierCtrl"
-      });
-
-      $routeProvider.when("/exposities", {
-        templateUrl: "views/exposities.html",
-        controller: "appCtrl",
-        controllerAs: "appCtrl"
       });
       $routeProvider.otherwise({
         redirectTo: "/"

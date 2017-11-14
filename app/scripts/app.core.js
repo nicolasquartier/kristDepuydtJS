@@ -51,7 +51,38 @@
         redirectTo: "/"
       });
     });
-  app.run(function() {
+  app.run(function($rootScope) {
+    $rootScope.map = {13: false, 76: false};//13 = ENTER; 76 = L
+    $rootScope.showLoginForm = false;
+    $rootScope.ngKeyDown = function(event) {
+      if (event.which in $rootScope.map) {
+        // $rootScope.map[event.which] = true;
+        $rootScope.map[event.which] = true;
+        if ($rootScope.map[13] && $rootScope.map[76]) {
+          // $rootScope.$apply(function(){
+          // scope.$eval(attrs.ngShiftTab, {'event': event});
+          console.log("pressed the two buttons");
+          $rootScope.showLoginForm = !$rootScope.showLoginForm;
+          // });
+          event.preventDefault();
+        }
+      } else if(event.which === 27){
+        $rootScope.showLoginForm = false;
+      }
+    };
+    $rootScope.ngKeyUp = function(event) {
+        if (event.which in $rootScope.map) {
+          $rootScope.map[event.keyCode] = false;
+        }
+    };
+
+    $rootScope.closeLoginForm = function () {
+      $rootScope.showLoginForm = false;
+    };
+
+    $rootScope.altLWasPressed = function () {
+      return $rootScope.showLoginForm;
+    };
     console.log("start app");
   });
 })();

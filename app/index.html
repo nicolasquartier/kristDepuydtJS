@@ -4,11 +4,13 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
   <meta charset="utf-8"/>
-  <meta name="fragment" content="!" />
+  <meta name="fragment" content="!"/>
   <base href="/#//">
 
-  <meta name="description" content="Krist Depuydt, krist depuydt, Krist, Depuydt, krist, depuydt, Depuydt Krist, depuydt krist, kristdepuydt.be, KristDepuydt.be, KRISTDEPUYDT.BE">
-  <meta name="keywords" content="Krist Depuydt, krist depuydt, Krist, Depuydt, krist, depuydt, Depuydt Krist, depuydt krist">
+  <meta name="description"
+        content="Krist Depuydt, krist depuydt, Krist, Depuydt, krist, depuydt, Depuydt Krist, depuydt krist, kristdepuydt.be, KristDepuydt.be, KRISTDEPUYDT.BE">
+  <meta name="keywords"
+        content="Krist Depuydt, krist depuydt, Krist, Depuydt, krist, depuydt, Depuydt Krist, depuydt krist">
   <meta name="author" content="Krist Depuydt">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -16,18 +18,19 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/styles.css"/>
   <link rel="stylesheet" href="styles/menu.css"/>
+  <link rel="stylesheet" href="styles/loginForm.css"/>
   <link rel="stylesheet" href="styles/lightbox.css"/>
   <!-- endbuild -->
 </head>
 
-<body class="container ng-cloak" data-status="ready">
+<body class="container ng-cloak" data-status="ready" ng-keydown="ngKeyDown($event)" ng-keyup="ngKeyUp($event)">
 <header class="header">
   <div class="container">
     <p><a href="#">Krist Depuydt</a></p>
@@ -35,7 +38,7 @@
 </header>
 
 <nav>
-  <div cl ass="container">
+  <div class="container">
     <ul class="menu">
       <li class="active"><a href="/sculptuur">Sculptuur</a></li>
       <li><a href="/keramiek">Keramiek</a></li>
@@ -103,5 +106,30 @@
 <!-- endangular -->
 <!-- endbuild -->
 <ng-view></ng-view>
+<div id="loginFormContainer" ng-show="altLWasPressed()">
+
+  <div id="loginContainer">
+  </div>
+
+  <div id="loginScherm">
+    <h1>LOGIN</h1><span class="message error" id="loginError" name="loginError"></span>
+
+    <img src="./images/close.png" alt="close" ng-click="closeLoginForm()"/>
+    <form action="#" method="post" id="loginform" enctype="multipart/form-data" onsubmit="">
+      <dl id="dlLoginScherm">
+        <dt>NAAM:</dt>
+        <dd><input type="text" id="txtnaam" name="txtnaam" placeholder="Naam" value=""/>
+        </dd>
+        <dt>WACHTWOORD:</dt>
+        <dd><input type="password" id="txtpassword" name="txtpassword" placeholder="Wachtwoord" value=""/>
+        </dd>
+        <dt></dt>
+        <dd>
+          <input type="submit" id="btnLogin" name="btnLogin" value="LOG IN"/>
+        </dd>
+      </dl>
+    </form>
+  </div>
+</div>
 </body>
 </html>

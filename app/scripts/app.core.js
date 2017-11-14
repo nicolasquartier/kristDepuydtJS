@@ -47,6 +47,17 @@
         controller: "rudiquartierCtrl",
         controllerAs: "rudiquartierCtrl"
       });
+
+      $routeProvider.when("/admin", {
+        templateUrl: "views/admin.html",
+        controller: "adminCtrl",
+        controllerAs: "adminCtrl"
+      });
+      $routeProvider.when("/sculptuurBeheren", {
+        templateUrl: "views/SculptuurBeheren.html",
+        controller: "sculptuurBeherenCtrl",
+        controllerAs: "sculptuurBeherenCtrl"
+      });
       $routeProvider.otherwise({
         redirectTo: "/"
       });

@@ -1,0 +1,19 @@
+<section id="photos" class="photos">
+  <div class="container">
+    <ul>
+      <li class="image" ng-repeat="photoset in sculptuurBeherenCtrl.sculptuurPhotosets">
+        <a href="{{photoset.photos[0]}}" data-lightbox="{{photoset.name}}" data-title="{{photoset.name}}">
+          <img src="{{photoset.photos[0]}}"/>
+        </a>
+        <p class="SculptuurSummary"><b>{{photoset.name}}</b> - {{photoset.description}}</p>
+        <div class="extraBeelden">
+          <div class="beeld" ng-repeat="photo in photoset.photos" ng-if="$index > 0">
+            <a href="{{photo}}" data-lightbox="{{photoset.name}}" data-title="{{photoset.name}}">
+              <img src="{{photo}}"/>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

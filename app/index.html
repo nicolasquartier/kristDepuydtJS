@@ -24,6 +24,7 @@
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/styles.css"/>
+  <link rel="stylesheet" href="styles/adminPanel.css"/>
   <link rel="stylesheet" href="styles/menu.css"/>
   <link rel="stylesheet" href="styles/loginForm.css"/>
   <link rel="stylesheet" href="styles/lightbox.css"/>
@@ -91,13 +92,13 @@
 
 <script src="scripts/controllers/keramiekCtrl.js" type="text/javascript"></script>
 
-<script src="scripts/controllers/contactCtrl.js" type="text/javascript"></script>
-
 <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
 
 <script src="scripts/controllers/adminCtrl.js" type="text/javascript"></script>
 
 <script src="scripts/controllers/ExpositiesCtrl.js" type="text/javascript"></script>
+
+<script src="scripts/controllers/ContactCtrl.js" type="text/javascript"></script>
 
 <script src="scripts/app.config.js" type="text/javascript"></script>
 
@@ -120,7 +121,8 @@
         <dd><input type="text" id="txtnaam" name="txtnaam" ng-model="$rootScope.username" placeholder="Naam" value=""/>
         </dd>
         <dt>WACHTWOORD:</dt>
-        <dd><input type="password" id="txtpassword" name="txtpassword" ng-model="$rootScope.password" placeholder="Wachtwoord" value=""/>
+        <dd><input type="password" id="txtpassword" name="txtpassword" ng-model="$rootScope.password"
+                   placeholder="Wachtwoord" value=""/>
         </dd>
         <dt></dt>
         <dd>

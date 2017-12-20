@@ -28,6 +28,7 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+
     // Project settings
     yeoman: appConfig,
 
@@ -89,7 +90,13 @@ module.exports = function (grunt) {
                 '/app/styles',
                 connect.static('./app/styles')
               ),
-              connect.static(appConfig.app)
+              connect.static(appConfig.app),
+              function (req, res, next) {
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                res.setHeader('Access-Control-Allow-Methods', '*');
+                res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                next();
+              }
             ];
           }
         }
@@ -116,6 +123,23 @@ module.exports = function (grunt) {
           base: '<%= yeoman.dist %>'
         }
       }
+    },
+
+    php: {
+      dist: {
+        options: {
+          port: 8000,
+          base: 'app'
+        }
+      }
+      // dev: {
+      //   options: {
+      //     port: 8000,
+      //     // base: 'app',
+      //     keepalive:true,
+      //     open: true
+      //   }
+      // }
     },
 
     // Make sure there are no obvious mistakes
@@ -202,23 +226,23 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
+        ignorePath: /\.\.\//,
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+            detect: {
+              js: /'(.*\.js)'/gi
+            },
+            replace: {
+              js: '\'{{filePath}}\','
             }
           }
+        }
       }
     },
 
@@ -426,12 +450,12 @@ module.exports = function (grunt) {
     },
 
     angularFileLoader: {
-        options: {
-            scripts: ['<%= yeoman.app %>/scripts/**/*.js']
-        },
-        app: {
-            src: ['<%= yeoman.app %>/index.html']
-        }
+      options: {
+        scripts: ['<%= yeoman.app %>/scripts/**/*.js']
+      },
+      app: {
+        src: ['<%= yeoman.app %>/index.html']
+      }
     }
 
 
@@ -449,6 +473,7 @@ module.exports = function (grunt) {
       'angularFileLoader',
       'concurrent:server',
       'postcss:server',
+      'php:dist',
       'connect:livereload',
       'watch'
     ]);
@@ -490,6 +515,7 @@ module.exports = function (grunt) {
     'newer:jshint',
     'newer:jscs',
     'test',
+    'php',
     'build'
   ]);
 };

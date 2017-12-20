@@ -1,0 +1,30 @@
+#txtContactName {
+  font-weight: bold;
+}
+
+
+#contact .txtContactDetails{
+  display: none;
+  float:none;
+  width:250px;
+  height:25px;
+  line-height:25px;
+}
+
+
+.imgContactDetails {
+  max-width: 25px;
+  cursor: pointer;
+}
+
+.edit{
+  display: inline;
+}
+
+.save {
+  display: none;
+}
+
+.txtContactDetails {
+  display: inline;
+}

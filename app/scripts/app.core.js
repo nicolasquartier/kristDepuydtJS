@@ -1,11 +1,24 @@
 "use strict";
 
-(function() {
-  var app = angular.module("kristDepuydt.core", ["ngRoute", "angular-loading-bar"])
-    .config(function ($routeProvider, $httpProvider, $locationProvider) {
+(function () {
+  var app = angular.module("kristDepuydt.core", ["ngCookies", "ngRoute", "angular-loading-bar"])
+    .config(function ($routeProvider, $httpProvider, $locationProvider, $sceDelegateProvider) {
 
       // $httpProvider.interceptors.push("customHeaderService");
+      // $httpProvider.interceptors.push("authenticationService");
+      // $sceDelegateProvider.resourceUrlWhitelist([
+      //   // Allow same origin resource loads.
+      //   'self',
+      //   // Allow loading from our assets domain. **.
+      //   'https://api.flickr.com/**'
+      // ]);
       $locationProvider.html5Mode(true);
+
+      $httpProvider.defaults.useXDomain = true;
+      $httpProvider.defaults.withCredentials = true;
+      delete $httpProvider.defaults.headers.common["X-Requested-With"];
+      $httpProvider.defaults.headers.common["Accept"] = "application/json";
+      $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
       $routeProvider.when("/", {
         templateUrl: "views/sculptuur.html",
@@ -34,8 +47,13 @@
       });
       $routeProvider.when("/contact", {
         templateUrl: "views/contact.html",
-        controller: "ContactCtrl",
-        controllerAs: "ContactCtrl"
+        controller: "contactCtrl",
+        controllerAs: "contactCtrl"
+      });
+      $routeProvider.when("/contactBeheren", {
+        templateUrl: "views/contactBeheren.html",
+        controller: "contactCtrl",
+        controllerAs: "contactCtrl"
       });
       $routeProvider.when("/exposities", {
         templateUrl: "views/exposities.html",
@@ -62,10 +80,10 @@
         redirectTo: "/"
       });
     });
-  app.run(function($rootScope) {
+  app.run(function ($rootScope, $location, $http, $cookies) {
     $rootScope.map = {13: false, 76: false};//13 = ENTER; 76 = L
     $rootScope.showLoginForm = false;
-    $rootScope.ngKeyDown = function(event) {
+    $rootScope.ngKeyDown = function (event) {
       if (event.which in $rootScope.map) {
         // $rootScope.map[event.which] = true;
         $rootScope.map[event.which] = true;
@@ -77,14 +95,14 @@
           // });
           event.preventDefault();
         }
-      } else if(event.which === 27){
+      } else if (event.which === 27) {
         $rootScope.showLoginForm = false;
       }
     };
-    $rootScope.ngKeyUp = function(event) {
-        if (event.which in $rootScope.map) {
-          $rootScope.map[event.keyCode] = false;
-        }
+    $rootScope.ngKeyUp = function (event) {
+      if (event.which in $rootScope.map) {
+        $rootScope.map[event.keyCode] = false;
+      }
     };
 
     $rootScope.closeLoginForm = function () {
@@ -95,5 +113,31 @@
       return $rootScope.showLoginForm;
     };
     console.log("start app");
+
+    // keep user logged in after page refresh
+    $rootScope.globals = $cookies.get('globals') || {};
+    if ($rootScope.globals.currentUser) {
+      $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+    }
+
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+      // redirect to login page if not logged in
+      console.log("redirect to login page if not logged in");
+      // if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
+      //   $location.path('/login');
+      // }
+    });
+
+    $rootScope.login = function ($scope, authenticationService) {
+      authenticationService.login($scope.username, $scope.password, function (response) {
+        if (response.success) {
+          authenticationService.setCredentials($scope.username, $scope.password);
+          $location.path('/');
+        } else {
+          $scope.error = response.message;
+        }
+      });
+      console.log("login");
+    }
   });
 })();

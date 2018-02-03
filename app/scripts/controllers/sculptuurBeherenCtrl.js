@@ -50,5 +50,81 @@
       return 0;
     }
 
+    $scope.edit = function (event) {
+      $scope.toggleOtherLines();
+      $scope.toggleOtherButtons();
+      $scope.toggleButtons(event);
+      $scope.toggleText(event);
+    };
+
+    $scope.save = function (event) {
+      $scope.toggleOtherLines();
+      $scope.toggleOtherButtons();
+      $scope.toggleButtons(event);
+      $scope.toggleText(event);
+    };
+
+    $scope.getNameOfElement = function (event) {
+      var fullElementName = event.currentTarget.id;
+
+      //get name of element
+      var kindOfBtn = fullElementName.indexOf('btnEdit') > -1 ? "btnEdit" : "btnSave";
+      console.log('kindOfBtn: ' + kindOfBtn);
+      var parts = fullElementName.split(kindOfBtn);
+      return parts[parts.length - 1];
+    };
+
+    $scope.toggleButtons = function (event) {
+      var name = $scope.getNameOfElement(event);
+      console.log(name + ' clicked');
+
+      //toggle btnEdit
+      var btnEdit = angular.element(document.querySelector('#btnEdit' + name));
+      console.log('#btnEdit' + name + ' display was: ' + btnEdit.css("display"));
+      var styleBtnEdit = (btnEdit.css("display") === "inline" || btnEdit.css("display") === "block") ? "none" : "inline";
+      btnEdit.css("display", styleBtnEdit);
+      console.log('#btnEdit' + name + ' must be ' + styleBtnEdit);
+
+      //toggle btnSave
+      var btnSave = angular.element(document.querySelector('#btnSave' + name));
+      console.log('#btnSave' + name + ' display was: ' + btnSave.css("display"));
+      var styleBtnSave = (btnSave.css("display") === "inline" || btnSave.css("display") === "block") ? "none" : "inline";
+      btnSave.css("display", styleBtnSave);
+      console.log('#btnSave' + name + ' must be ' + styleBtnSave)
+    };
+
+    $scope.toggleText = function (event) {
+      var name = $scope.getNameOfElement(event);
+
+      //toggle span
+      var spanText = angular.element(document.querySelector('#span' + name));
+      var styleSpanText = spanText.css("display") === "inline" ? "none" : "inline";
+      spanText.css("display", styleSpanText);
+
+      //toggle input
+      var txtInput = angular.element(document.querySelector('#txt' + name));
+      var styleTxtInput = txtInput.css("display") === "inline" ? "none" : "inline";
+      txtInput.css("display", styleTxtInput);
+    };
+
+    $scope.toggleOtherLines = function () {
+      //show span
+      var spanTexts = angular.element(document.querySelectorAll('.spanPhotoSetDescription'));
+      spanTexts.css("display", "inline");
+
+      //disable input texts
+      var inpuTexts = angular.element(document.querySelectorAll('.txtPhotoSetDescription'));
+      inpuTexts.css("display", "none");
+    };
+
+    $scope.toggleOtherButtons = function () {
+      //show span
+      var btnEdits = angular.element(document.querySelectorAll('.edit'));
+      btnEdits.css("display", "inline");
+
+      //disable input texts
+      var btnSaves = angular.element(document.querySelectorAll('.save'));
+      btnSaves.css("display", "none");
+    };
   }
 })();

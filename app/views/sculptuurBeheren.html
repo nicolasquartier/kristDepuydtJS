@@ -1,11 +1,30 @@
 <section id="photos" class="photos">
   <div class="container">
     <ul>
+      <li class="bordered addCollection">
+        <p><img src="../images/AdminPanel/icon_grid_1x_add_to_open_folder.png">Collectie toevoegen</p>
+      </li>
       <li class="image" ng-repeat="photoset in sculptuurBeherenCtrl.sculptuurPhotosets">
         <a href="{{photoset.photos[0]}}" data-lightbox="{{photoset.name}}" data-title="{{photoset.name}}">
           <img src="{{photoset.photos[0]}}"/>
         </a>
-        <p class="SculptuurSummary"><b>{{photoset.name}}</b> - {{photoset.description}}</p>
+
+        <p class="SculptuurSummary">
+          <span class="saveOrEdit">
+          <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgPhotoSet edit"
+               id="btnEdit{{photoset.id}}" ng-click="edit($event)">
+          <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="save" class="imgPhotoSet save"
+               id="btnSave{{photoset.id}}" ng-click="save($event)">
+          </span>
+          <span style="float: left;">
+            <b>{{photoset.name}}</b> -
+          </span>
+          <span id="span{{photoset.id}}" class="spanPhotoSetDescription">{{photoset.description}}</span>
+          <textarea rows="6" cols="90" id="txt{{photoset.id}}" class="txtPhotoSetDescription"
+                    placeholder="description">{{photoset.description}}</textarea>
+          <!--<input type ="text" id="txt{{photoset.id}}" class="txtPhotoSetDescription" placeholder="description" value="{{photoset.description}}">-->
+        </p>
+
         <div class="extraBeelden">
           <div class="beeld" ng-repeat="photo in photoset.photos" ng-if="$index > 0">
             <a href="{{photo}}" data-lightbox="{{photoset.name}}" data-title="{{photoset.name}}">

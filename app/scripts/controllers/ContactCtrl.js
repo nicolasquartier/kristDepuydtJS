@@ -8,84 +8,18 @@
     var that = this;
     that.contactDetails = {};
 
-    $http.get('data/contact.json').then(function onSuccess(response) {
-      that.contactDetails.name = response.data.name;
-      that.contactDetails.address = response.data.address;
-      that.contactDetails.phone = response.data.phone;
-      that.contactDetails.mobilePhone = response.data.mobilePhone;
-      that.contactDetails.email = response.data.email;
-    }).catch(function onError(response) {
-      console.log("error: " + response);
-    });
-
-    var object = new Object();
-    object.name = "test";
-
-
-    // $http.get('data/getContactDetails.php').then(function (response) {
-    // $http({
-    //   method: 'GET',
-    //   url: 'http://localhost/data/getContactDetails.php',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json',
-    //     'Access-Control-Allow-Origin':'*'
-    //   }
-    // }).then(function (response) {
-    //   console.log(JSON.stringify(response));
-    // }).catch(function (response) {
-    //   console.log("error: " + JSON.stringify(response))
-    // });
-
-    // $http.post('http://localhost:8000/data/getContactDetails.php', object).then(function onSuccess(response) {
-    //   console.log(JSON.stringify(response));
-    // }).catch(function onError(response) {
-    //   console.log("error: " + JSON.stringify(response))
-    // });
-
-    // $http.post('http://localhost:8000/data/getContactDetails.php', object).success(function (response) {
-    //   console.log(JSON.stringify(response));
-    // }).error(function (response) {
-    //   console.log("error: " + JSON.stringify(response))
-    // });
-
-    // $http.jsonp("http://localhost:8000/data/getContactDetails.php", object)
-    // $http.jsonp("http://localhost:8000/data/getContactDetails.php")
-    //   .success(function (response) {
-    //     console.log(JSON.stringify(response));
-    //   })
-    //   .error(function (response) {
-    //     console.log("error: " + response)
-    //   });
-    // $http({
-    //   method: 'POST',
-    //   // url: 'http://localhost/data/getContactDetails.php',
-    //   // url: 'localhost:9000/getContactDetails.php',
-    //   url: 'http://localhost/data/getContactDetails.php',
-    //   params: {
-    //     // format: "post",
-    //     // callback: "JSON_CALLBACK"
-    //     // withCredentials: false
-    //
-    //   }
-    //   ,
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json'
-    //     // 'Acces-control-allow-origin': '*'
-    //   }
-    // }).then(function (response) {
-    //   console.log(JSON.stringify(response));
-    // }).catch(function (response) {
-    //   console.log("error: " + JSON.stringify(response))
-    // });
-
-    $http.post('http://localhost/data/getContactDetails.php', object).success(function (response) {
-      console.log(JSON.stringify(response));
-    }).error(function (response) {
-      // console.log("error: " + JSON.stringify(response))
-      console.log("error: " + JSON.stringify(response))
-    });
+// working
+    $http.jsonp("https://spreadsheets.google.com/feeds/list/12-g0i0TO4GN2xn4NzDy2S72SLFHLPEdFyz__mU9AJjE/1/public/values?alt=json&callback=JSON_CALLBACK")
+      .success(function (response) {
+        // $scope.tools = response.feed.entry;
+        console.log(response.feed.entry);
+        var contactData = response.feed.entry;
+        that.contactDetails.name = contactData[0].gsx$name.$t;
+        that.contactDetails.address = contactData[0].gsx$adres.$t;
+        that.contactDetails.phone = contactData[0].gsx$tel.$t;
+        that.contactDetails.mobilePhone = contactData[0].gsx$gsm.$t;
+        that.contactDetails.email = contactData[0].gsx$email.$t;
+      });
 
     $scope.getNameOfElement = function (event) {
       var fullElementName = event.currentTarget.id;
@@ -94,6 +28,18 @@
       var kindOfBtn = fullElementName.indexOf('btnEdit') > -1 ? "btnEdit" : "btnSave";
       var parts = fullElementName.split(kindOfBtn);
       return parts[parts.length - 1];
+    };
+
+    $scope.showEditButtonAfterSave = function (event) {
+      var name = $scope.getNameOfElement(event);
+
+      //toggle btnEdit
+      var btnEdit = angular.element(document.querySelector('#btnEdit' + name));
+      btnEdit.css("display", 'inline');
+
+      //toggle btnSave
+      var btnSave = angular.element(document.querySelector('#btnSave' + name));
+      btnSave.css("display", 'none');
     };
 
     $scope.toggleButtons = function (event) {
@@ -124,6 +70,18 @@
       txtInput.css("display", styleTxtInput);
     };
 
+    $scope.showText = function (event) {
+      var name = $scope.getNameOfElement(event);
+
+      //toggle span
+      var spanText = angular.element(document.querySelector('#span' + name));
+      spanText.css("display", 'inline');
+
+      //toggle input
+      var txtInput = angular.element(document.querySelector('#txt' + name));
+      txtInput.css("display", 'none');
+    };
+
     $scope.toggleOtherLines = function () {
       //show span
       var spanTexts = angular.element(document.querySelectorAll('.contactDetailsText'));
@@ -145,6 +103,7 @@
     };
 
     $scope.edit = function (event) {
+      $scope.save(event);
       $scope.toggleOtherLines();
       $scope.toggleOtherButtons();
       $scope.toggleButtons(event);
@@ -154,17 +113,39 @@
     $scope.save = function (event) {
       $scope.toggleOtherLines();
       $scope.toggleOtherButtons();
-      $scope.toggleButtons(event);
-      $scope.toggleText(event);
+      $scope.showText(event);
+      $scope.showEditButtonAfterSave(event);
 
-      $http.post('data/saveJson.php', that.contactDetails).then(function (data) {
-        console.log("data saved");
-        $scope.msg = 'Data saved';
+      $('#spanContactName').text($('#txtContactName').val());
+      $('#spanContactAddress').text($('#txtContactAddress').val());
+      $('#spanContactPhone').text($('#txtContactPhone').val());
+      $('#spanContactMobilePhone').text($('#txtContactMobilePhone').val());
+      $('#spanContactEmail').text($('#txtContactEmail').val());
+
+      $http({
+        method: 'POST',
+        url: 'https://script.google.com/macros/s/AKfycbykMeAZCscR5py9qpbMLCqPk6SqS4odAZq5YUnL0ybbJZauZw/exec',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        transformRequest: function (obj) {
+          var str = [];
+          for (var p in obj)
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+          return str.join("&");
+        },
+        data: {
+          "name": $('#txtContactName').val(),
+          "adres": $('#txtContactAddress').val(),
+          "tel": $('#txtContactPhone').val(),
+          "gsm": $('#txtContactMobilePhone').val(),
+          "email": $('#txtContactEmail').val()
+        }
+      }).then(function (response) {
+        console.log(JSON.stringify(response));
+      }).catch(function (response) {
+        console.log("error: " + JSON.stringify(response))
       });
     };
-
-
   }
-
-
 })();

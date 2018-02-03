@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-  var app = angular.module("kristDepuydt.core", ["ngCookies", "ngRoute", "angular-loading-bar"])
+  var app = angular.module("kristDepuydt.core", ["ngCookies", "ngRoute", "angular-loading-bar", "angular-google-gapi"])
     .config(function ($routeProvider, $httpProvider, $locationProvider, $sceDelegateProvider) {
 
       // $httpProvider.interceptors.push("customHeaderService");

@@ -8,7 +8,8 @@
     "angular-cookies": "1.5.9",
     "Bootstrap-Confirmation": "bootstrap-confirmation#*",
     "angular-loading-bar": "^0.8.0",
-    "angular-flickr-api-factory": "^0.5.1"
+    "angular-flickr-api-factory": "^0.5.1",
+    "angular-google-gapi": "^1.0.1"
   },
   "devDependencies": {},
   "appPath": "app",

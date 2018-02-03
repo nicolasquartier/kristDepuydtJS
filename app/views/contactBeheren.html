@@ -1,36 +1,53 @@
 <section id="contact" class="contact" ng-controller="contactCtrl">
-  <p>
-    <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit" id="btnEditContactName" ng-click="edit($event)">
-    <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save" id="btnSaveContactName" ng-click="save($event)">
-    <input type ="text" id="txtContactName" class="txtContactDetails" placeholder="Naam" value="{{contactCtrl.contactDetails.name}}">
-    <span id="spanContactName" class="contactDetailsText"><b>{{contactCtrl.contactDetails.name}}</b></span>
-  </p>
+  <form>
+    <p>
+      <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit"
+           id="btnEditContactName" ng-click="edit($event)">
+      <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save"
+           id="btnSaveContactName" ng-click="save($event)">
+      <input type="text" id="txtContactName" name="txtContactName" class="txtContactDetails" placeholder="Naam"
+             value="{{contactCtrl.contactDetails.name}}">
+      <span id="spanContactName" class="contactDetailsText"><b>{{contactCtrl.contactDetails.name}}</b></span>
+    </p>
 
-  <p>
-    <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit" id="btnEditContactAddress" ng-click="edit($event)">
-    <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save" id="btnSaveContactAddress" ng-click="save($event)">
-    <input type ="text" id="txtContactAddress" class="txtContactDetails" placeholder="Adres" value="{{contactCtrl.contactDetails.address}}">
-    <span id="spanContactAddress" class="contactDetailsText">{{contactCtrl.contactDetails.address}}</span>
-  </p>
+    <p>
+      <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit"
+           id="btnEditContactAddress" ng-click="edit($event)">
+      <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save"
+           id="btnSaveContactAddress" ng-click="save($event)">
+      <input type="text" id="txtContactAddress" name="txtContactAddress" class="txtContactDetails" placeholder="Adres"
+             value="{{contactCtrl.contactDetails.address}}">
+      <span id="spanContactAddress" class="contactDetailsText">{{contactCtrl.contactDetails.address}}</span>
+    </p>
 
-  <p>
-    <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit" id="btnEditContactPhone" ng-click="edit($event)">
-    <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save" id="btnSaveContactPhone" ng-click="save($event)">
-    <input type ="text" id="txtContactPhone" class="txtContactDetails" placeholder="Telefoon" value="{{contactCtrl.contactDetails.phone}}">
-    <span id="spanContactPhone" class="contactDetailsText">{{contactCtrl.contactDetails.phone}}</span>
-  </p>
+    <p>
+      <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit"
+           id="btnEditContactPhone" ng-click="edit($event)">
+      <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save"
+           id="btnSaveContactPhone" ng-click="save($event)">
+      <input type="text" id="txtContactPhone" name="txtContactPhone" class="txtContactDetails" placeholder="Telefoon"
+             value="{{contactCtrl.contactDetails.phone}}">
+      <span id="spanContactPhone" class="contactDetailsText">{{contactCtrl.contactDetails.phone}}</span>
+    </p>
 
-  <p>
-    <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit" id="btnEditContactMobilePhone" ng-click="edit($event)">
-    <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save" id="btnSaveContactMobilePhone" ng-click="save($event)">
-    <input type ="text" id="txtContactMobilePhone" class="txtContactDetails" placeholder="GSM" value="{{contactCtrl.contactDetails.mobilePhone}}">
-    <span id="spanContactMobilePhone" class="contactDetailsText">{{contactCtrl.contactDetails.mobilePhone}}</span>
-  </p>
+    <p>
+      <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit"
+           id="btnEditContactMobilePhone" ng-click="edit($event)">
+      <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save"
+           id="btnSaveContactMobilePhone" ng-click="save($event)">
+      <input type="text" id="txtContactMobilePhone" name="txtContactMobilePhone" class="txtContactDetails" placeholder="GSM"
+             value="{{contactCtrl.contactDetails.mobilePhone}}">
+      <span id="spanContactMobilePhone" class="contactDetailsText">{{contactCtrl.contactDetails.mobilePhone}}</span>
+    </p>
 
-  <p>
-    <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit" id="btnEditContactEmail" ng-click="edit($event)">
-    <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save" id="btnSaveContactEmail" ng-click="save($event)">
-    <input type ="text" id="txtContactEmail" class="txtContactDetails" placeholder="E-mail" value="{{contactCtrl.contactDetails.email}}">
-    <span id="spanContactEmail" class="contactDetailsText">{{contactCtrl.contactDetails.email}}</span>
-  </p>
+    <p>
+      <img src="../images/AdminPanel/icon_grid_1x_edit.png" alt="edit" class="imgContactDetails edit"
+           id="btnEditContactEmail" ng-click="edit($event)">
+      <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="edit" class="imgContactDetails save"
+           id="btnSaveContactEmail" ng-click="save($event)">
+      <input type="text" id="txtContactEmail" name="txtContactEmail" class="txtContactDetails" placeholder="E-mail"
+             value="{{contactCtrl.contactDetails.email}}">
+      <span id="spanContactEmail" class="contactDetailsText">{{contactCtrl.contactDetails.email}}</span>
+    </p>
+  </form>
 </section>

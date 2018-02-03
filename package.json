@@ -41,5 +41,10 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "angular-google-gapi": "^1.0.1",
+    "angular-resource": "^1.5.9",
+    "googleapis": "^25.0.0"
   }
 }

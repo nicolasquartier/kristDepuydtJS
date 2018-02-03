@@ -16,13 +16,16 @@
           <img src="../images/AdminPanel/icon_grid_1x_save.png" alt="save" class="imgPhotoSet save"
                id="btnSave{{photoset.id}}" ng-click="save($event)">
           </span>
-          <span style="float: left;">
+
+          <span id="spanName{{photoset.id}}" class="spanPhotoSetName">
             <b>{{photoset.name}}</b> -
           </span>
+          <input type ="text" id="txtPhotoSetName{{photoset.id}}" class="txtPhotoSetName" placeholder="name collectiob" value="{{photoset.name}}">
+
           <span id="span{{photoset.id}}" class="spanPhotoSetDescription">{{photoset.description}}</span>
-          <textarea rows="6" cols="93" id="txt{{photoset.id}}" class="txtPhotoSetDescription"
+          <textarea rows="6" cols="89" id="txtPhotoSetDescription{{photoset.id}}" class="txtPhotoSetDescription"
                     placeholder="description">{{photoset.description}}</textarea>
-          <!--<input type ="text" id="txt{{photoset.id}}" class="txtPhotoSetDescription" placeholder="description" value="{{photoset.description}}">-->
+          <!--<input type ="text" id="txtPhotoSetDescription{{photoset.id}}" class="txtPhotoSetDescription" placeholder="description" value="{{photoset.description}}">-->
         </p>
 
         <div class="extraBeelden">

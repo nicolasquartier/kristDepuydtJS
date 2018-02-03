@@ -56,7 +56,7 @@
       btnSave.css("display", styleBtnSave);
     };
 
-    $scope.toggleText = function (event) {
+    $scope.toggleDescriptionTextArea = function (event) {
       var name = $scope.getNameOfElement(event);
 
       //toggle span
@@ -82,7 +82,7 @@
       txtInput.css("display", 'none');
     };
 
-    $scope.toggleOtherLines = function () {
+    $scope.toggleOtherCollectionDescriptions = function () {
       //show span
       var spanTexts = angular.element(document.querySelectorAll('.contactDetailsText'));
       spanTexts.css("display", "inline");
@@ -104,14 +104,14 @@
 
     $scope.edit = function (event) {
       $scope.save(event);
-      $scope.toggleOtherLines();
+      $scope.toggleOtherCollectionDescriptions();
       $scope.toggleOtherButtons();
       $scope.toggleButtons(event);
-      $scope.toggleText(event);
+      $scope.toggleDescriptionTextArea(event);
     };
 
     $scope.save = function (event) {
-      $scope.toggleOtherLines();
+      $scope.toggleOtherCollectionDescriptions();
       $scope.toggleOtherButtons();
       $scope.showText(event);
       $scope.showEditButtonAfterSave(event);

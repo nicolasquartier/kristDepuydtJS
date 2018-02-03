@@ -50,20 +50,6 @@
       return 0;
     }
 
-    $scope.edit = function (event) {
-      $scope.toggleOtherLines();
-      $scope.toggleOtherButtons();
-      $scope.toggleButtons(event);
-      $scope.toggleText(event);
-    };
-
-    $scope.save = function (event) {
-      $scope.toggleOtherLines();
-      $scope.toggleOtherButtons();
-      $scope.toggleButtons(event);
-      $scope.toggleText(event);
-    };
-
     $scope.getNameOfElement = function (event) {
       var fullElementName = event.currentTarget.id;
 
@@ -93,7 +79,7 @@
       console.log('#btnSave' + name + ' must be ' + styleBtnSave)
     };
 
-    $scope.toggleText = function (event) {
+    $scope.toggleDescriptionTextArea = function (event) {
       var name = $scope.getNameOfElement(event);
 
       //toggle span
@@ -102,18 +88,48 @@
       spanText.css("display", styleSpanText);
 
       //toggle input
-      var txtInput = angular.element(document.querySelector('#txt' + name));
+      var txtInput = angular.element(document.querySelector('#txtPhotoSetDescription' + name));
       var styleTxtInput = txtInput.css("display") === "inline" ? "none" : "inline";
       txtInput.css("display", styleTxtInput);
     };
 
-    $scope.toggleOtherLines = function () {
+    $scope.toggleName = function (event) {
+      var name = $scope.getNameOfElement(event);
+      console.log("name: " + name);
+
+      //toggle span
+      var spanText = angular.element(document.querySelector('#spanName' + name));
+      var styleSpanText = spanText.css("display") === "inline" ? "none" : "inline";
+      spanText.css("display", styleSpanText);
+
+      //toggle input
+      var txtInput = angular.element(document.querySelector('#txtPhotoSetName' + name));
+      var styleTxtInput = txtInput.css("display") === "inline" ? "none" : "inline";
+      txtInput.css("display", styleTxtInput);
+
+      txtInput.css("width", "100px");
+      txtInput.css("position", "relative");
+      txtInput.css("top", "1px");
+
+    };
+
+    $scope.toggleOtherCollectionDescriptions = function () {
       //show span
       var spanTexts = angular.element(document.querySelectorAll('.spanPhotoSetDescription'));
       spanTexts.css("display", "inline");
 
       //disable input texts
       var inpuTexts = angular.element(document.querySelectorAll('.txtPhotoSetDescription'));
+      inpuTexts.css("display", "none");
+    };
+
+    $scope.toggleOtherCollectionNames = function () {
+      //show span
+      var spanTexts = angular.element(document.querySelectorAll('.spanPhotoSetName'));
+      spanTexts.css("display", "inline");
+
+      //disable input texts
+      var inpuTexts = angular.element(document.querySelectorAll('.txtPhotoSetName'));
       inpuTexts.css("display", "none");
     };
 
@@ -125,6 +141,29 @@
       //disable input texts
       var btnSaves = angular.element(document.querySelectorAll('.save'));
       btnSaves.css("display", "none");
+    };
+
+    $scope.edit = function (event) {
+      $scope.toggleOtherCollectionNames();
+      $scope.toggleOtherCollectionDescriptions();
+      $scope.toggleOtherButtons();
+      $scope.toggleButtons(event);
+      $scope.toggleName(event);
+      $scope.toggleDescriptionTextArea(event);
+    };
+
+    $scope.save = function (event) {
+      $scope.toggleOtherCollectionNames();
+      $scope.toggleOtherCollectionDescriptions();
+      $scope.toggleOtherButtons();
+      $scope.toggleButtons(event);
+      $scope.toggleDescriptionTextArea(event);
+
+      //@TODO: save to flickr
+        //@TODO-1: save Collection's name
+        //@TODO-2: save Collection's Description
+        //@TODO-3: save Collection's Photos
+
     };
   }
 })();

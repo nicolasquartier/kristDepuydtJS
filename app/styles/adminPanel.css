@@ -51,6 +51,7 @@ span.saveOrEdit .save {
 
 .spanPhotoSetDescription {
   position: relative;
+  margin-left: 5px;
 }
 
 .txtPhotoSetDescription {

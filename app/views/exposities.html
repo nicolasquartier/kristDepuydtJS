@@ -8,11 +8,11 @@
           <p class="title">{{expositie.name}}</p>
           <p class="location" ng-show="expositie.description !== ''">- {{expositie.description}}</p>
           <p class="date" ng-if-start="expositie.hasPhotos == true">
-            <a href="{{expositie.photos.$$state.value[0]}}" data-lightbox="{{expositie.name}}">(Foto's)</a>
+            <a href="{{expositie.photos.$$state.value[0]}}" data-lightbox="{{expositie.name}}" data-title="{{expositie.name}}">(Foto's)</a>
           </p>
           <div class="extraBeelden" ng-if-end>
             <div class="beeld" ng-repeat="photo in expositie.photos.$$state.value" ng-if="$index > 0">
-              <a href="{{photo}}" data-lightbox="{{expositie.name}}">
+              <a href="{{photo}}" data-lightbox="{{expositie.name}}" data-title="{{expositie.name}}">
                 <img src="{{photo}}" alt="{{expositie.name}}"/>
               </a>
             </div>
